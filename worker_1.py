@@ -1,3 +1,9 @@
+'''
+
+script to show how messages can be distributed to multiple consumers.
+run this file on multiple terminals to see the whole exercise
+'''
+
 import pika
 import time
 

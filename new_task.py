@@ -1,7 +1,7 @@
 '''
 
 Script to send durable and persistant messages to consumers.
-
+Also for tutorial to show message distribution between queues.
 '''
 
 import pika
