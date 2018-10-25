@@ -7,6 +7,10 @@ import pika
 connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
 channel = connection.channel()
 
+'''
+Exchange_declare is similar to queue_declare in the sense that it 
+declares an exchange if it does not exist else does nothing.
+'''
 channel.exchange_declare(exchange='logs',
                          exchange_type='fanout')
 
@@ -18,6 +22,10 @@ result = channel.queue_declare(exclusive=True)
 # accessing via method output above
 queue_name = result.method.queue
 
+'''
+we declare queue_bind in consumer only to tell that the consumer shall
+take the messages from specified exchange and queue.
+'''
 channel.queue_bind(exchange='logs',
                    queue=queue_name)
 
